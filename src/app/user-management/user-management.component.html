@@ -1,0 +1,22 @@
+<!-- user-management.component.html -->
+<div class="container mt-4">
+  <h2>Active Users</h2>
+  <ul class="list-group mb-4">
+    <ng-container *ngFor="let user of users">
+      <li *ngIf="user.active" class="list-group-item d-flex justify-content-between align-items-center">
+        {{ user.name }}
+        <button class="btn btn-outline-danger btn-sm" (click)="setActive(user, false)">Set to Inactive</button>
+      </li>
+    </ng-container>
+  </ul>
+
+  <h2>Inactive Users</h2>
+  <ul class="list-group">
+    <ng-container *ngFor="let user of users">
+      <li *ngIf="!user.active" class="list-group-item d-flex justify-content-between align-items-center">
+        {{ user.name }}
+        <button class="btn btn-outline-success btn-sm" (click)="setActive(user, true)">Set to Active</button>
+      </li>
+    </ng-container>
+  </ul>
+</div>
